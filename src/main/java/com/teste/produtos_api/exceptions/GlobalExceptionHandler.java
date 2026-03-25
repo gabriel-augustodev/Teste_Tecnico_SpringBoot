@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.Map;
 
+/**
+ * é responsável por centralizar o tratamento de erros da aplicação.
+ */
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 

@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ *Esse controller expõe os endpoints REST para gerenciamento de produtos.
+ */
+
 @RestController
 @RequestMapping("/api/produtos")
 public class ProdutoController {

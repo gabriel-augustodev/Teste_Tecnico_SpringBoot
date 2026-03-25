@@ -7,6 +7,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+/**
+ * Responsável pelo token
+ */
+
 @Component
 public class JwtUtil {
 

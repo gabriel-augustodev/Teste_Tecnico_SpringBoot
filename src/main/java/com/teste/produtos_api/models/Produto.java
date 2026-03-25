@@ -1,10 +1,16 @@
 package com.teste.produtos_api.models;
 
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+/**
+ * Entidade do banco de dados
+ */
 
 @Entity
 public class Produto {
@@ -13,9 +19,16 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     private String nome;
+
+    @NotNull
     private Double preco;
+
+    @NotNull
     private String descricao;
+
+    @NotNull
     private String categoria;
 
 

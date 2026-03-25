@@ -11,6 +11,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Configuração de segurança da aplicação.
+ * Define autenticação via JWT, rotas públicas e protegidas,
+ * além do tratamento de erros 401 e 403.
+ */
+
 @Configuration
 public class SecurityConfig {
 
@@ -29,16 +35,16 @@ public class SecurityConfig {
                         "/swagger-ui/**",
                         "/v3/api-docs/**",
                         "/swagger-resources/**"
-                ).permitAll()
-                .anyRequest().authenticated();
+                ).permitAll()// Libera acesso sem autenticação para o login, swagger e o console do H2
+                .anyRequest().authenticated(); // qualquer outra requisição tem que estar autenticada
 
         http.exceptionHandling()
                 .authenticationEntryPoint((request, response, authException) -> {
-                    response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                    response.getWriter().write("Erro 401: Não autenticado");
+                    response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);// define status 401
+                    response.getWriter().write("Erro 401: Não autenticado");//retorna mensagem personalizada
                 })
                 .accessDeniedHandler((request, response, accessDeniedException) -> {
-                    response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+                    response.setStatus(HttpServletResponse.SC_FORBIDDEN);// define status 403
                     response.getWriter().write("Erro 403: Acesso negado");
                 });
 

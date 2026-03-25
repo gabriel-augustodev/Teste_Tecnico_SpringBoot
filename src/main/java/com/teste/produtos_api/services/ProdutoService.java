@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Camada de negócio da API
+ */
+
 @Service
 public class ProdutoService {
 
